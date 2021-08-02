@@ -23,6 +23,37 @@ DROP TABLE IF EXISTS `concert` ;
 CREATE TABLE IF NOT EXISTS `concert` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
+  `venue` VARCHAR(45) NOT NULL,
+  `performer` VARCHAR(45) NULL,
+  `genre` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `address`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `address` ;
+
+CREATE TABLE IF NOT EXISTS `address` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `city` VARCHAR(100) NOT NULL,
+  `state` VARCHAR(45) NOT NULL,
+  `street` VARCHAR(200) NULL,
+  `zipcode` INT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `performers`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `performers` ;
+
+CREATE TABLE IF NOT EXISTS `performers` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `genre` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -42,7 +73,27 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `emetdb`;
-INSERT INTO `concert` (`id`, `name`) VALUES (1, 'Foam Wonderland');
+INSERT INTO `concert` (`id`, `name`, `venue`, `performer`, `genre`) VALUES (1, 'Foam Wonderland', 'National Western Complex', 'Ghastly', 'Dubstep');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `address`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emetdb`;
+INSERT INTO `address` (`id`, `city`, `state`, `street`, `zipcode`) VALUES (1, 'Denver', 'CO', '1515 East 47th Ave', 80216);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `performers`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `emetdb`;
+INSERT INTO `performers` (`id`, `name`, `genre`) VALUES (1, 'Getter', 'Dubstep');
 
 COMMIT;
 

@@ -8,13 +8,21 @@ import javax.persistence.Id;
 @Entity
 public class Concert {
 
+///////////// Fields ///////////
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
 
-	
+	private String venue;
+
+	private String performer;
+
+	private String genre;
+
+/////////// Methods //////////
+
 	public Concert() {
 		super();
 	}
@@ -35,9 +43,34 @@ public class Concert {
 		this.name = name;
 	}
 
+	public String getVenue() {
+		return venue;
+	}
+
+	public void setVenue(String venue) {
+		this.venue = venue;
+	}
+
+	public String getPerformer() {
+		return performer;
+	}
+
+	public void setPerformer(String performer) {
+		this.performer = performer;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
 	@Override
 	public String toString() {
-		return "Concert [id=" + id + ", name=" + name + "]";
+		return "Concert Name: " + name + ", Venue: " + venue + ", Headlining Performer: " + performer + ", Genre: "
+				+ genre;
 	}
 
 	@Override
@@ -67,5 +100,5 @@ public class Concert {
 			return false;
 		return true;
 	}
-	
+
 }

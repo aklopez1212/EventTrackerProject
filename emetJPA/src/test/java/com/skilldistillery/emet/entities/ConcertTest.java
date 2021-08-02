@@ -41,9 +41,13 @@ class ConcertTest {
 	}
 
 	@Test
-	void test() {
+	void db_concert_test() {
 		assertNotNull(concert);
+		assertEquals(1, concert.getId());
 		assertEquals("Foam Wonderland", concert.getName());
+		assertEquals("National Western Complex", concert.getVenue());
+		assertEquals("Ghastly", concert.getPerformer());
+		assertEquals("Dubstep", concert.getGenre());
 	}
 
 }
