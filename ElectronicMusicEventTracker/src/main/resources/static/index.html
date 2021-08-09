@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EMET</title>
+<script src="js/script.js"></script>
+<link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+<h1>Electronic Music Event Tracker</h1>
+
+<form name="concertForm">
+    <input type="number" name="concertId">
+    <button name="lookup">Get Concert by Id</button>
+    <button name="showAll">Show All Concerts</button>
+  </form>
+  <div id="output">
+    <table id="concertTable" border="1">
+    </table>
+  </div>
+
+<div id ='concertListDiv'>
+    <table id='concertListTable' border="1"></table>
+</div>
+
+<h3>Add A Show</h3>
+<form name="newConcertForm">
+<label for='name'>Name</label><input type='text' name='name'><br>
+<label for='venue'>Venue</label><input type='text' name='venue'><br>
+<label for='performer'>Headlining Performer</label><input type='text' name='performer'><br>
+<label for='genre'>Genre</label><input type='text' name='genre'><br>
+<button name='addConcert'>Add Concert</button>
+<button name='updateConcert' value=${concertId}>Update Concert</button>
+</form>
+</body>
+</html>
