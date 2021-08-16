@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { Concert } from '../models/concert';
 
 @Injectable({
@@ -9,8 +10,7 @@ import { Concert } from '../models/concert';
 })
 export class ConcertService {
 
-  baseUrl = 'http://localhost:8084/';
-  url = this.baseUrl + 'api/concerts';
+  url = environment.baseUrl + 'api/concerts';
 
   constructor(
     private http: HttpClient
